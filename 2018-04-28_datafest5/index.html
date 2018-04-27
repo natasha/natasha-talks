@@ -1,0 +1,581 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>natasha — библиотека для извлечения структурированной информации из текстов на русском языке</title>
+
+    <link rel="stylesheet" href="css/highlight.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <div id="title">
+	    <h1><span id="github">github.com/</span>natasha</h1>
+	    <p id="hero"><span class="hanging">—</span> библиотека для извлечения структурированной информации из текстов на русском языке</p>
+	    <div id="author">Александр Кукушкин</div>
+	    <div id="company">lab.alexkuk.ru</div>
+	  </div>
+	</section>
+
+	<section class="top">
+	  <ol class="nav">
+	    <li>Примеры</li>
+	    <li>Разбор резюме</li>
+	  </ol>
+
+	  <img class="cover"src="i/hh.png"/>
+	</section>
+
+	<section class="top">
+	  <ol class="nav">
+	    <li>Примеры</li>
+	    <li>Разбор резюме</li>
+	  </ol>
+
+	  <div class="container">
+	    <div class="left markup">…
+Опыт работы - 1 год 8 месяцев
+
+<mark class="a">Июль 2011</mark> — <mark class="a">Октябрь 2012</mark>
+<mark class="b">КФ ОАО Ростпечать</mark>
+Семикаракорск
+
+<mark class="c">Бухгалтер-ревизор</mark>
+Проведение ревизий, начисление зп, сдача отчета в ФСС, 2 НДФЛ, сдача бухгалтерской отчётности, поездки в ФНС
+
+<mark class="a">Май 2010</mark> — <mark class="a">Май 2011</mark>
+<mark class="b">ООО «Селикамск»</mark>
+Махачкала
+…
+	    </div>
+	    <div class="right fact">
+[
+  {
+    "period": {
+      "start": {
+        "year": 2011, "month": 7
+      },
+      "stop": {
+        "year": 2012, "month": 10
+      }
+    },
+    "position": "Бухгалтер-ревизор",
+    "company": {
+      "name": "КФ ОАО Ростпечать",
+      "area": "Семикаракорск",
+    }
+  },
+  …
+]
+	    </div>
+	  </div>
+	</section>
+
+	<section class="top">
+	  <ol class="nav">
+	    <li>Примеры</li>
+	    <li>Контакты</li>
+	  </ol>
+
+	  <img class="cover" src="i/contacts.png"/>
+	</section>
+
+	<section class="top">
+	  <ol class="nav">
+	    <li>Примеры</li>
+	    <li>Контакты</li>
+	  </ol>
+
+	  <div class="container">
+	    <div class="left markup">
+<mark class="a">Луговой пр., д. 43-45, лит. Б</mark>
+  
+Магазин работает с 10.00 до 18.00
+Суббота, воскресенье – выходные
+
+Телефон: <mark class="b">8 (812) 4954301</mark>
+Факс: <mark class="b">8 812 3253523</mark>
+<mark class="d">shop@gold10.ru</mark>
+
+Реквизиты: ООО «Голд 10 Маркет» ИНН:<mark class="c">7840038965</mark>; КПП:<mark class="c">784001001</mark>;
+	    </div>
+	    <div class="right fact">
+{
+  "phones": ["+7 812 495-43-01"],
+  "faxes": ["+7 812 325-35-23"],
+  "emails": ["shop@gold10.ru"],
+  "addresses": [
+    {
+      "parts": [
+        {
+          "name": "Луговой",
+          "type": "проспект"
+        },
+        {
+          "number": "43-45",
+          "type": "дом"
+        },
+        {"value": "Б", "type": "литер"},
+      ]
+    }
+  ],
+  "inn": "7840038965",
+  "kpp": "784001001"
+}
+	    </div>
+	  </div>
+	</section>
+
+	<section class="top">
+	  <ol class="nav">
+	    <li>Примеры</li>
+	    <li>Названия товаров</li>
+	  </ol>
+
+	  <img class="cover" src="i/avito.png"/>
+	</section>
+
+	<section class="top">
+	  <ol class="nav">
+	    <li>Примеры</li>
+	    <li>Названия товаров</li>
+	  </ol>
+
+	  <div class="container">
+	    <div class="left markup">
+<mark class="b">Пульт</mark> <mark class="a">PlayStation3</mark>
+
+Продаю <mark class="a">Ps4 pro</mark>
+
+<mark class="a">Сонька 3</mark>
+
+<mark class="a">Sony PlayStation 4</mark> <mark class="c">500Gb</mark> Slim
+
+Новый жесткий <mark class="b">кейс</mark> <mark class="a">psp</mark>
+
+<mark class="a">Ps3 slim</mark> <mark class="c">прошитая</mark> rebug 4.81 + fifa 18
+	    </div>
+	    <div class="right fact">
+{
+  "accessory": {
+    "type": "пульт"
+  },
+  "console": {
+    "name": "PlayStation",
+    "model": "3"
+  }
+}	    
+{
+  "console": {
+    "name": "PlayStation",
+    "model": "4",
+    "version": "PRO"
+  },
+  "attributes": []
+}
+…
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <table id="def">
+	    <tr>
+	      <td colspan="2" class="box">
+		Библиотека «Наташа» — набор готовых правил для Yargy-парсера
+		<div class="note code">
+		  github.com/natasha/natasha
+		</div>
+	      </td>
+	      <td rowspan="2" id="natasha">
+		Технология «Наташа»
+		<div class="note">
+		  github.com/natasha
+		</div>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td class="box">
+		CRF-теггер
+		<div class="note">
+		  python-crfsuite
+		</div>
+	      </td>
+	      <td class="box">
+		Yargy-парсер — аналог яндексового Томита-парсера для Python
+		<div class="note">
+		  github.com/natasha/yargy
+		</div>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td></td>
+	      <td class="box">
+		Морфологический анализатор
+		<div class="note">
+		  pymorphy2
+		</div>
+	      </td>
+	    </tr>
+	  </table>
+	</section>
+
+	<section class="top">
+	  <ol class="nav">
+	    <li>Принцип работы</li>
+	    <li>Контекстно-свободные грамматики и словари</li>
+	  </ol>
+	  
+	  <div class="grammar">
+name → first                 <span class="comment">Борис</span>
+       last                  <span class="comment">Королёв</span>
+       first last            <span class="comment">Николь Кидман</span>
+       last first
+       first middle last     <span class="comment">Анна Павловна Шерер</span>
+       last first middle 
+       <span class="no">middle first last     <span class="comment">Иванович Иван Иванов</span></span>
+       abbr . abbr . last    <span class="comment">А.С.Пушкин</span>
+       last abbr . abbr .
+	  </div>
+	</section>
+
+	<section class="top code" data-background="black">
+	  <ol class="nav">
+	    <li>Принцип работы</li>
+	    <li>DSL</li>
+	  </ol>
+
+	  <div class="container">
+	    <div class="left">
+	      <pre><code>
+from yargy import rule, or_, Parser
+from yargy.predicates import gram
+
+FIRST = gram('Name')
+LAST = gram('Surn')
+MIDDLE = gram('Patr')
+ABBR = gram('Abbr')
+
+NAME = or_(
+    rule(FIRST),
+    rule(LAST),
+    rule(FIRST, LAST),
+    rule(LAST, FIRST),
+    rule(FIRST, MIDDLE, LAST),
+    rule(LAST, FIRST, MIDDLE),
+    rule(ABBR, '.', ABBR, '.', LAST),
+    rule(LAST, ABBR, '.', ABBR, '.'),
+)
+	      </code></pre>
+	    </div>
+	    <div class="right">
+	      <pre><code>
+parser = Parser(NAME)
+text = '''
+Хочу поблагодарить учителей Бушуева
+Вячеслава Владимировича и Бушуеву
+Веру Константиновну. 
+'''
+for match in parser.findall(text):
+    start, stop = match.span
+    print(text[start:stop])	  
+
+>>> Бушуева Вячеслава Владимировича
+>>> Бушуеву Веру Константиновну
+	      </code></pre>
+	    </div>
+	  </div>
+	</section>
+
+	<section class="top code" data-background="black">
+	  <ol class="nav">
+	    <li>Принцип работы</li>
+	    <li>Интерпретация и нормализация</li>
+	  </ol>
+
+	  <div class="container">
+	    <div class="left">
+	      <pre><code>
+from yargy.interpretation import fact
+
+Name = fact(
+    'Name',
+    ['first', 'middle', 'last']
+)
+
+FIRST = gram('Name').interpretation(
+    Name.first.inflected()
+)
+LAST = gram('Surn').interpretation(
+    Name.last.inflected()
+)
+MIDDLE = gram('Patr').interpretation(
+    Name.middle.inflected()
+)
+
+NAME = or_(...)
+	      </pre></code>
+	    </div>
+	    <div class="right">
+	      <pre><code>
+parser = Parser(NAME)
+text = '''
+Хочу поблагодарить учителей Бушуева
+Вячеслава Владимировича и Бушуеву
+Веру Константиновну. 
+'''
+for match in parser.findall(text):
+    print(match.fact)
+
+>>> Name(
+...     first='вячеслав',
+...     middle='владимирович',
+...     last='бушуев'
+... )
+>>> Name(
+...     first='вера',
+...     middle='константиновна',
+...     last='бушуев'
+... )
+	      </code></pre>
+	    </div>
+	  </div>
+    	</section>
+
+	<section class="top code" data-background="black">
+	  <ol class="nav">
+	    <li>Принцип работы</li>
+	    <li>Согласование</li>
+	  </ol>
+
+	  <div class="container">
+	    <div class="left">
+	      <pre><code>
+from yargy.relations import gnc_relation
+
+gnc = gnc_relation()
+
+FIRST = gram('Name').interpretation(
+    Name.first.inflected()
+).match(gnc)
+
+LAST = gram('Surn').interpretation(
+    Name.last.inflected()
+).match(gnc)
+
+MIDDLE = gram('Patr').interpretation(
+    Name.middle.inflected()
+).match(gnc)
+
+NAME = or_(...)
+	      </code></pre>
+	    </div>
+	    <div class="right">
+	      <pre><code>
+parser = Parser(NAME)
+text = '''
+Хочу поблагодарить учителей Бушуева
+Вячеслава Владимировича и Бушуеву
+Веру Константиновну. 
+'''
+for match in parser.findall(text):
+print(match.fact)
+
+>>> Name(
+...     first='вячеслав',
+...     middle='владимирович',
+...     last='бушуев'
+... )
+>>> Name(
+...     first='вера',
+...     middle='константиновна',
+...     last='бушуева'
+... )
+	      </code></pre>
+	    </div>
+	  </div>
+	</section>
+
+	<section class="top code" data-background="black">
+	  <ol class="nav">
+	    <li>Принцип работы</li>
+	    <li>Сборник готовых правил</li>
+	  </ol>
+
+	  <div class="container">
+	    <div class="left">
+	      <pre><code>
+from natasha import NamesExtractor
+
+extractor = NamesExtractor()
+text = '''
+Хочу поблагодарить учителей Бушуева
+Вячеслава Владимировича и Бушуеву
+Веру Константиновну. 
+'''
+for match in extractor(text):
+    print(match.fact)  
+	      </code></pre>
+	    </div>
+	    <div class="right">
+	      <pre><code>
+>>> Name(
+...     first='вячеслав',
+...     middle='владимирович',
+...     last='бушуев',
+...     nick=None
+... )
+>>> Name(
+...     first='вера',
+...     middle='константиновна',
+...     last='бушуева',
+...     nick=None
+... )
+	      </code></pre>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <table id="lib">
+	    <tr>
+	      <th>
+		Экстрактор
+	      </th>
+	      <th>
+		Пример
+	      </th>
+	      <th>
+		Аналоги
+	      </th>
+	    </tr>
+
+	    <tr>
+	      <td class="code">
+		NamesExtractor
+	      </td>
+	      <td class="markup">
+		Отрицал существование <mark class="a">Иисуса</mark> и пророка <mark class="a">Мухаммеда</mark>, наделял <mark class="a">Иисуса Христа</mark> качествами ожившего мертвеца
+	      </td>
+	      <td>
+		Томита-парсер
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td class="code">
+		AddressExtractor
+	      </td>
+	      <td class="markup">
+		Офис работает с 14.00 до 17.00 по адресу <mark class="a">г.Красноряск ул.Парижской Коммуны,14 оф.14</mark>.
+	      </td>
+	      <td>
+		pypostal<sup>*</sup>
+	      </td>
+	    <tr>
+
+	    <tr>
+	      <td class="code">
+		DatesExtractor
+	      </td>
+	      <td class="markup">
+		Я посмотрел на инфляцию в России, взял период с <mark class="a">декабря 2002 года</mark> по <mark class="a">декабрь 2015 года</mark> Инфляция 246%.
+	      </td>
+	      <td>
+		dateparser
+	      </td>
+	    <tr>
+
+	    <tr>
+	      <td class="code">
+		MoneyExtractor		
+	      </td>
+	      <td class="markup">
+		В 1995 году стоимость <mark class="a">1 доллара</mark> была около <mark class="a">800 рублей 50 копеек</mark>
+	      </td>
+	      <td>
+	      </td>
+	    <tr>
+	    <tr>
+	      <td>
+		...
+	      </td>
+	    </tr>
+	  </table>
+
+
+	</section>
+
+	<section>
+	  <div class="container">
+	    <div class="left markup">Байкеры мотоклуба «Ночные волки» совместно с главой Чечни <mark class="a">Рамзаном Кадыровым</mark> совершили мотопробег, посвященный дню рождения президента РФ <mark class="a">Владимира Путина</mark>. Об этом сообщил в «ВКонтакте» сам <mark class="a">Кадыров</mark>.
+
+В составе "Эдмонтона" голы забили <mark class="a">Райан Джонс</mark>, Том <mark class="a">Гилберт</mark>, а также <mark class="a">Райан Смит</mark>, который поразил пустые ворота.
+
+Следом за Свифт идут <mark class="a">Кэти</mark> <mark class="a">Перри</mark> (219 миллионов), Селена <mark class="a">Гомес</mark> (205 миллионов) и <mark class="a">Рианна</mark> (190 миллионов)
+	    </div>
+	    <div class="right">
+	      <div id="measures">
+		<ul>
+		  <li>0.78 — f1-мера для имён на первой дорожке factRuEval-2016</li>
+		  <li>0.95+ — у топовых решений</li>
+		  <li><span class="hanging">~</span>0.90 — на глаз для русских имён</li>
+		</ul>
+
+		<ul>
+		  <li><span class="hanging">~</span>1Кб — размер статьи на lenta.ru</li>
+		  <li><span class="hanging">~</span>10 статей в секунду — производительность NamesExtractor</li>
+		  <li><span class="hanging">~</span>20 статей в секунду — под PyPy</li>
+		  <li><span class="hanging">~</span>200 статей в секунду — у Томита-парсера</li>
+		</ul>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <div id="links">
+	    <ul>
+	      <li>
+		Установка
+		<ul>
+		  <li>pip install natasha</li>
+		  <li>pip install yargy</li>
+		</ul>
+	      </li>
+	      <li>
+		Документация:
+		<ul>
+		  <li><a href="http://natasha.readthedocs.io/">natasha.readthedocs.io</a></li>
+		  <li><a href="http://yargy.readthedocs.io/">yargy.readthedocs.io</a></li>
+		</ul>
+	      </li>
+	      <li>
+		Примеры использования:
+		<ul>
+		  <li><a href="https://github.com/natasha/natasha-examples/">github.com/natasha/natasha-examples</a></li>
+		  <li><a href="https://github.com/natasha/yargy-examples/">github.com/natasha/yargy-examples</a></li>
+		</ul>
+	      </li>
+	    </ul>
+	  </div>
+
+
+	</section>
+
+
+      </div>
+    </div>
+
+    <script src="js/head.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/index.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,73 @@
+
+/* .reveal .slides .pdf-page { */
+/*     border: 1px solid silver; */
+/* } */
+
+.reveal section {
+    font-family: Verdana;
+    font-size: 30px;
+    letter-spacing: -1px;
+}
+
+.reveal section.top {
+    top: 15px !important;
+    left: 15px !important;
+}
+
+.reveal section>img.cover {
+    width: auto;
+    height: 500px;
+}
+
+/*  */
+/*  */
+/* TITLE */
+/*  */
+/*  */
+
+#title {
+    text-align: left;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#title h1 {
+    font-size: 120px;
+    letter-spacing: -10px;
+    margin-left: -6px;
+}
+
+#title #hero {
+    font-size: 40px;
+    letter-spacing: -2px;
+    text-align: left;
+}
+
+#title h1, #title #hero {
+    margin-bottom: 30px;
+}
+
+#title #author, #title #company {
+    font-size: 22px;
+}
+
+/*  */
+/*  */
+/* LINKS */
+/*  */
+/*  */
+
+#links, #setup {
+    text-align: left;
+    margin-left: 30px;
+}
+
+#links dd, #setup dd {
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+a, a:visited {
+    color: steelblue;
+    text-decoration: none;
+}

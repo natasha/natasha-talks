@@ -16,4 +16,22 @@ Data Fest 5
 <a href="https://www.youtube.com/watch?v=3Lxb-DqPtv4&t=300s">Запись трансляции</a>
 </td>
 </tr>
+
+<tr>
+<td>
+2018-10-13
+</td>
+<td>
+pyData
+</td>
+<td>
+Yargy-парсер. Извлечение структурированной информации из текстов на русском языке
+</td>
+<td>
+<a href="https://github.com/natasha/natasha-talks/blob/master/2018-10-13_pydata.pdf">Слайды</a>
+</td>
+<td>
+<a href="https://www.youtube.com/watch?v=NQxzx0qYgK8">Запись воркшопа</a>
+</td>
+</tr>
 </table>

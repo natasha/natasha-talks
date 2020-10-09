@@ -1,6 +1,23 @@
 <table>
 <tr>
 <td>
+2020-09-20
+</td>
+<td>
+Data Fest 2020
+</td>
+<td>
+Рассказ про историю проекта и отдельные инструменты: Yargy-парсер, Natasha, Razdel, Navec, Slovnet, Naeval, Corus.
+</td>
+<td>
+</td>
+<td>
+<a href="https://youtu.be/-7XT_U6hVvk">Запись доклада</a>
+</td>
+</tr>
+
+<tr>
+<td>
 2020-08-31
 </td>
 <td>
